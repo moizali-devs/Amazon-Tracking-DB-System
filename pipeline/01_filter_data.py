@@ -20,7 +20,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-from filter_data_helpers import BRANDS, detect_brand
+from filter_data_helpers import BRANDS, PHONE_ASINS, detect_brand
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger(__name__)
@@ -74,75 +74,54 @@ def parse_timestamp(ts) -> str:
 
 def build_product_index() -> dict[str, dict]:
     """
-    Read 2023 metadata file and return a dict mapping parent_asin → {brand, name}.
-    Only includes products that match one of the target brands.
+    Read metadata file and return a dict mapping parent_asin → {brand, name}
+    for the exact ASINs in PHONE_ASINS allowlist.
     """
     if not META_FILE.exists():
         raise FileNotFoundError(f"Metadata file not found: {META_FILE}")
 
     log.info("Reading product metadata from %s ...", META_FILE)
     index: dict[str, dict] = {}
+    remaining = set(PHONE_ASINS.keys())
     total = 0
 
     for record in iter_gz_json(META_FILE):
         total += 1
-        # 2023 format uses parent_asin as the canonical product identifier
-        asin = record.get("parent_asin", "").strip()
-        title = record.get("title", "")
-        store = record.get("store", "")  # brand field in 2023 format
+        if not remaining:
+            break  # found all targets, stop early
 
-        if not asin or not title:
+        asin = record.get("parent_asin", "").strip()
+        if asin not in remaining:
             continue
 
-        brand = detect_brand(title, store)
-        if brand:
-            index[asin] = {"brand": brand, "name": title}
+        title = record.get("title", "") or ""
+        brand = PHONE_ASINS[asin]
+        index[asin] = {"brand": brand, "name": title}
+        remaining.discard(asin)
 
         if total % 200_000 == 0:
             log.info("  Scanned %d metadata records ...", total)
 
-    log.info("Scanned %d products, %d matched target brands.", total, len(index))
+    if remaining:
+        log.warning("Could not find metadata for ASINs: %s", remaining)
+
+    log.info("Scanned %d metadata records, resolved %d/%d target products.",
+             total, len(index), len(PHONE_ASINS))
     return index
 
 
 def select_top_products(product_index: dict[str, dict]) -> set[str]:
     """
-    Count reviews per product in the reviews file, pick top PRODUCTS_PER_BRAND per brand.
-    Returns the set of selected parent_asins.
+    With the PHONE_ASINS allowlist, all products in the index are pre-selected.
+    This function logs the selection for visibility and returns the full set.
     """
-    if not REVIEWS_FILE.exists():
-        raise FileNotFoundError(f"Reviews file not found: {REVIEWS_FILE}")
-
-    log.info("Counting reviews per product ...")
-    review_counts: dict[str, int] = defaultdict(int)
-
-    for i, record in enumerate(iter_gz_json(REVIEWS_FILE)):
-        # 2023 format: use parent_asin for product grouping
-        asin = record.get("parent_asin", "")
-        if asin in product_index:
-            review_counts[asin] += 1
-        if i % 500_000 == 0 and i > 0:
-            log.info("  Scanned %d reviews ...", i)
-
-    # Group by brand and pick top N by review count
-    brand_products: dict[str, list[tuple[int, str]]] = defaultdict(list)
-    for asin, count in review_counts.items():
-        brand = product_index[asin]["brand"]
-        brand_products[brand].append((count, asin))
-
-    selected: set[str] = set()
-    log.info("\nSelected products:")
+    selected = set(product_index.keys())
+    log.info("\nSelected products (from PHONE_ASINS allowlist):")
     for brand in BRANDS:
-        candidates = sorted(brand_products.get(brand, []), reverse=True)
-        top = candidates[:PRODUCTS_PER_BRAND]
-        if not top:
-            log.warning("  [%s] No products found!", brand)
-        for count, asin in top:
-            name = product_index[asin]["name"][:70]
-            log.info("  [%s] %s (%d reviews) — %s", brand, asin, count, name)
-            selected.add(asin)
-
-    log.info("\nTotal selected: %d products across %d brands.", len(selected), len(BRANDS))
+        for asin, info in product_index.items():
+            if info["brand"] == brand:
+                log.info("  [%s] %s — %s", brand, asin, info["name"][:70])
+    log.info("\nTotal: %d products across %d brands.", len(selected), len(BRANDS))
     return selected
 
 

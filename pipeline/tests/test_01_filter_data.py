@@ -39,6 +39,7 @@ def test_returns_none_for_unknown_brand():
 def test_case_insensitive():
     assert detect_brand("APPLE IPHONE 14", "") == "Apple"
 
-def test_all_brands_have_keywords():
-    for brand, keywords in BRANDS.items():
-        assert len(keywords) > 0, f"{brand} has no keywords"
+def test_all_brands_listed():
+    assert len(BRANDS) > 0
+    assert "Apple" in BRANDS
+    assert "Samsung" in BRANDS
