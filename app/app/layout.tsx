@@ -1,41 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Syne, Outfit } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/layout/sidebar";
-import { MobileNav } from "@/components/layout/mobile-nav";
+import { Nav } from "@/components/layout/nav";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Amazon Reviews Sentiment Dashboard",
+  title: "SentimentIQ — Amazon Reviews Analysis",
   description:
     "NLP-powered sentiment analysis of Amazon Cell Phone & Accessories reviews across 18 products.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
-    >
-      <body className="min-h-full bg-background text-foreground flex">
-        <Sidebar />
-        <div className="flex-1 flex flex-col min-h-screen min-w-0">
-          <MobileNav />
-          <main className="flex-1 overflow-y-auto">{children}</main>
-        </div>
+    <html lang="en" className={`${syne.variable} ${outfit.variable} h-full`}>
+      <body className="min-h-full bg-background text-foreground">
+        <Nav />
+        {/* pt-14 for desktop nav, pt-12 + pb-16 for mobile (top bar + bottom tabs) */}
+        <main className="pt-12 pb-20 md:pt-14 md:pb-0 min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

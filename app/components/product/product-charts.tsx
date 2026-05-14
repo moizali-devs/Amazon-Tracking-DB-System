@@ -22,7 +22,7 @@ export function ProductCharts({ product }: { product: Product }) {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
       {/* Donut — left / top */}
       <Card className="lg:col-span-2 p-6 bg-card border-border">
-        <h2 className="text-sm font-semibold text-foreground mb-5">Overall Sentiment</h2>
+        <h2 className="font-heading font-bold text-sm text-foreground mb-5">Overall Sentiment</h2>
         <SentimentDonut sentiment={overallSentiment} />
 
         <Separator className="my-5 bg-border" />
@@ -43,7 +43,7 @@ export function ProductCharts({ product }: { product: Product }) {
 
       {/* Aspect chart — right */}
       <Card className="lg:col-span-3 p-6 bg-card border-border">
-        <h2 className="text-sm font-semibold text-foreground mb-5">Aspect Breakdown</h2>
+        <h2 className="font-heading font-bold text-sm text-foreground mb-5">Aspect Breakdown</h2>
         <AspectChart product={product} />
       </Card>
     </div>

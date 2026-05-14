@@ -30,11 +30,13 @@ export default function ComparePage() {
   );
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto px-5 py-8 lg:px-8 lg:py-10">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground tracking-tight">Compare</h1>
-        <p className="text-sm text-muted-foreground mt-1">
+        <h1 className="font-heading font-black text-3xl text-foreground tracking-tight">
+          Compare
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1.5">
           Side-by-side sentiment comparison across up to 3 products
         </p>
       </div>
@@ -52,10 +54,10 @@ export default function ComparePage() {
           <button
             onClick={() => setSelectedIds([])}
             className="
-              text-sm px-3 py-2 rounded-md
+              text-sm px-4 py-2 rounded-full self-end
               border border-border text-muted-foreground
-              hover:text-foreground hover:border-foreground/30
-              transition-colors self-end
+              hover:text-foreground hover:border-white/20
+              transition-colors
             "
           >
             Reset
@@ -65,22 +67,19 @@ export default function ComparePage() {
 
       {/* Empty state */}
       {selected.length < 2 && (
-        <div className="rounded-lg border border-dashed border-border py-20 flex flex-col items-center gap-2 text-center">
-          <p className="text-sm text-foreground/60">
-            Select at least 2 products to start comparing
+        <div className="rounded-lg border border-dashed border-border py-24 flex flex-col items-center gap-2 text-center mb-8">
+          <p className="text-sm text-foreground/50 font-medium">
+            Select at least 2 products to compare
           </p>
-          <p className="text-xs text-muted-foreground">
-            You can compare up to 3 products side by side
-          </p>
+          <p className="text-xs text-muted-foreground">Up to 3 products side by side</p>
         </div>
       )}
 
-      {/* Charts */}
+      {/* Product comparison charts */}
       {selected.length >= 2 && (
-        <div className="space-y-6">
-          {/* Overall positive sentiment */}
+        <div className="space-y-5 mb-10">
           <Card className="p-6 bg-card border-border">
-            <h2 className="text-sm font-semibold text-foreground mb-1">
+            <h2 className="font-heading font-bold text-sm text-foreground mb-1">
               Overall Positive Sentiment
             </h2>
             <p className="text-xs text-muted-foreground mb-5">
@@ -89,9 +88,8 @@ export default function ComparePage() {
             <CompareBar products={selected} />
           </Card>
 
-          {/* Aspect radar */}
           <Card className="p-6 bg-card border-border">
-            <h2 className="text-sm font-semibold text-foreground mb-1">
+            <h2 className="font-heading font-bold text-sm text-foreground mb-1">
               Aspect Scores
             </h2>
             <p className="text-xs text-muted-foreground mb-5">
@@ -103,8 +101,10 @@ export default function ComparePage() {
       )}
 
       {/* Brand benchmark — always visible */}
-      <div className="mt-10">
-        <h2 className="text-base font-semibold text-foreground mb-1">Brand Benchmark</h2>
+      <div>
+        <h2 className="font-heading font-black text-xl text-foreground mb-1">
+          Brand Benchmark
+        </h2>
         <p className="text-xs text-muted-foreground mb-5">
           Average aspect sentiment across all brands — benchmark any product&apos;s weaknesses against the competition
         </p>
