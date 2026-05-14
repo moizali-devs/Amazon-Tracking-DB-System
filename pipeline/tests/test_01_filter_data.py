@@ -31,7 +31,7 @@ def test_detects_nokia_from_title():
     assert detect_brand("Nokia 3.4 Smartphone", "") == "Nokia"
 
 def test_detects_brand_from_brand_field_fallback():
-    assert detect_brand("Smartphone Case", "Samsung") == "Samsung"
+    assert detect_brand("Galaxy S21 5G Unlocked", "Samsung") == "Samsung"
 
 def test_returns_none_for_unknown_brand():
     assert detect_brand("Generic Phone Case", "") is None
