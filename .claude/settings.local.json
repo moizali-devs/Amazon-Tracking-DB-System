@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell:*)",
+      "Bash(gh auth:*)",
+      "Bash(node:*)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npx shadcn@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(ls:*)",
+      "Bash(pip install:*)",
+      "Read(//c/Users/moizp/Downloads/**)",
+      "Read(//d//**)",
+      "Bash(curl:*)",
+      "Bash(npx jest:*)",
+      "Bash(npx tsc:*)",
+      "Bash(gh issue:*)",
+      "Bash(npm test:*)"
+    ]
+  }
+}

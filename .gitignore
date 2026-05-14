@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Raw dataset files (too large for GitHub — download separately)
+raw-datasets/
+
+# Pipeline data (large files — never commit raw dataset)
+pipeline/data/raw/
+pipeline/data/processed/
+
+# Next.js
+app/.next/
+app/node_modules/
+app/.env
+app/.env.local
+app/.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
