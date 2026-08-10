@@ -2,13 +2,13 @@
 
 An interactive dashboard that analyzes customer sentiment from Amazon Cell Phones & Accessories reviews using NLP, deployed as a static site on Vercel.
 
-**Live demo:** _add URL after first Vercel deployment_
+**Live demo:** [amazon-tracking-db-system-one.vercel.app](https://amazon-tracking-db-system-one.vercel.app)
 
 ---
 
 ## Preview
 
-> _Add a screenshot here after deployment — drag an image into this file on GitHub or replace this line with `![Dashboard preview](docs/screenshot.png)`_
+![Dashboard preview](docs/screenshot.png)
 
 ---
 
@@ -37,9 +37,9 @@ An interactive dashboard that analyzes customer sentiment from Amazon Cell Phone
 ├── app/             # Next.js 14 frontend (deployed to Vercel)
 │   ├── app/
 │   ├── components/
-│   └── data/        # data.json output from pipeline
-├── docs/            # Project report and proposal
-└── vercel.json      # Vercel monorepo config
+│   ├── data/        # data.json output from pipeline
+│   └── vercel.json  # Vercel project config (root directory = app/)
+└── docs/            # Project report and proposal
 ```
 
 ---
@@ -80,9 +80,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 1. Push this repo to GitHub (already done).
 2. Go to [vercel.com](https://vercel.com) → **Add New Project** → import this repository.
-3. Vercel will auto-detect the `vercel.json` config — no manual settings needed.
+3. Set the project's **Root Directory** to `app` so Vercel picks up `app/vercel.json`.
 4. Click **Deploy**. All future pushes to `main` trigger automatic redeploys.
-5. Copy the deployment URL and update the **Live demo** link at the top of this file.
+
+Already deployed — see the **Live demo** link at the top of this file.
 
 ---
 
