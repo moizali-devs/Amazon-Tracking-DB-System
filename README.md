@@ -83,7 +83,7 @@ Open [http://localhost:3000](http://localhost:3000).
 3. Set the project's **Root Directory** to `app` so Vercel picks up `app/vercel.json`.
 4. Click **Deploy**. All future pushes to `main` trigger automatic redeploys.
 
-Already deployed — see the **Live demo** link at the top of this file.
+Already deployed - see the **Live demo** link at the top of this file.
 
 ---
 
@@ -101,4 +101,4 @@ Already deployed — see the **Live demo** link at the top of this file.
 ## Team
 
 Moiz Ali (024) · Ayesha Aleem (005) · Zainab Fatima (087)
-Introduction to Data Science — BS(CS) 6A, Bahria University Karachi
+Introduction to Data Science - BS(CS) 6A, Bahria University Karachi

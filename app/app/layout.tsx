@@ -16,7 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "SentimentIQ — Amazon Reviews Analysis",
+  title: "SentimentIQ - Amazon Reviews Analysis",
   description:
     "NLP-powered sentiment analysis of Amazon Cell Phone & Accessories reviews across 18 products.",
 };

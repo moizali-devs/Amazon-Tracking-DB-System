@@ -8,10 +8,10 @@ Writes:
   data/processed/scored_reviews.csv
 
 Adds columns:
-  vader_compound     float  — VADER compound score [-1.0, 1.0]
-  vader_label        str    — positive | neutral | negative
-  tb_polarity        float  — TextBlob polarity [-1.0, 1.0]
-  tb_subjectivity    float  — TextBlob subjectivity [0.0, 1.0]
+  vader_compound     float - VADER compound score [-1.0, 1.0]
+  vader_label        str - positive | neutral | negative
+  tb_polarity        float - TextBlob polarity [-1.0, 1.0]
+  tb_subjectivity    float - TextBlob subjectivity [0.0, 1.0]
 
 Usage:
   python 02_sentiment.py

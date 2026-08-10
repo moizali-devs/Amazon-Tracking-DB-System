@@ -1,5 +1,5 @@
 """
-Tests for 01_filter_data.py — brand detection and product selection logic.
+Tests for 01_filter_data.py - brand detection and product selection logic.
 """
 
 import sys

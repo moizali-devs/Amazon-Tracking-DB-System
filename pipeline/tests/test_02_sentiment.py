@@ -1,5 +1,5 @@
 """
-Tests for 02_sentiment.py — VADER scoring and label assignment.
+Tests for 02_sentiment.py - VADER scoring and label assignment.
 """
 
 import sys

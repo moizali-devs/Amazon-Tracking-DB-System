@@ -1,5 +1,5 @@
 """
-Tests for 04_aggregate.py — sentiment aggregation, aspect scoring, and output schema.
+Tests for 04_aggregate.py - sentiment aggregation, aspect scoring, and output schema.
 """
 
 import sys

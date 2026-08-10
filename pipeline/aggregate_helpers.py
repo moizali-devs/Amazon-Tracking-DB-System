@@ -100,7 +100,7 @@ def compute_monthly_sentiment(rows: list[dict]) -> list[dict]:
 
 def compute_top_aspects(aspect_scores: dict, n: int = 3) -> tuple[list[str], list[str]]:
     """
-    Return (top_praised, top_criticized) — lists of aspect names.
+    Return (top_praised, top_criticized) - lists of aspect names.
     Only aspects with at least 1 mention are considered.
     """
     mentioned = {k: v for k, v in aspect_scores.items() if v["mentionCount"] > 0}

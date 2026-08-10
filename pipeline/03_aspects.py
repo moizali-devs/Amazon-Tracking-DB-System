@@ -8,7 +8,7 @@ Writes:
   data/processed/aspects_reviews.csv
 
 Adds columns per aspect (battery, camera, screen, price, build, delivery):
-  aspect_battery    str  — positive | negative | neutral | "" (not mentioned)
+  aspect_battery    str - positive | negative | neutral | "" (not mentioned)
   aspect_camera     str
   aspect_screen     str
   aspect_price      str
@@ -16,9 +16,9 @@ Adds columns per aspect (battery, camera, screen, price, build, delivery):
   aspect_delivery   str
 
 Strategy:
-  - Use keyword matching to detect which aspects are mentioned in a review
-  - When an aspect is mentioned, assign it the review's overall VADER label
-  - spaCy is used for tokenisation and lemmatisation (improves keyword matching)
+ - Use keyword matching to detect which aspects are mentioned in a review
+ - When an aspect is mentioned, assign it the review's overall VADER label
+ - spaCy is used for tokenisation and lemmatisation (improves keyword matching)
 
 Usage:
   python 03_aspects.py
@@ -62,7 +62,7 @@ def main():
         raise FileNotFoundError(f"{INPUT_FILE} not found. Run 02_sentiment.py first.")
 
     log.info("Loading spaCy model '%s' ...", SPACY_MODEL)
-    # Disable unused pipeline components for speed — we only need tokeniser + lemmatiser
+    # Disable unused pipeline components for speed - we only need tokeniser + lemmatiser
     nlp = spacy.load(SPACY_MODEL, disable=["parser", "ner"])
 
     # Count rows for progress bar

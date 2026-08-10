@@ -120,7 +120,7 @@ def select_top_products(product_index: dict[str, dict]) -> set[str]:
     for brand in BRANDS:
         for asin, info in product_index.items():
             if info["brand"] == brand:
-                log.info("  [%s] %s — %s", brand, asin, info["name"][:70])
+                log.info("  [%s] %s - %s", brand, asin, info["name"][:70])
     log.info("\nTotal: %d products across %d brands.", len(selected), len(BRANDS))
     return selected
 

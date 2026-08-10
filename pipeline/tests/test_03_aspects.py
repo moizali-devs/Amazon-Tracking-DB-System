@@ -1,5 +1,5 @@
 """
-Tests for 03_aspects.py — aspect extraction and keyword matching.
+Tests for 03_aspects.py - aspect extraction and keyword matching.
 """
 
 import sys

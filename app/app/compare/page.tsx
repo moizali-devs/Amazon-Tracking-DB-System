@@ -100,13 +100,13 @@ export default function ComparePage() {
         </div>
       )}
 
-      {/* Brand benchmark — always visible */}
+      {/* Brand benchmark - always visible */}
       <div>
         <h2 className="font-heading font-black text-xl text-foreground mb-1">
           Brand Benchmark
         </h2>
         <p className="text-xs text-muted-foreground mb-5">
-          Average aspect sentiment across all brands — benchmark any product&apos;s weaknesses against the competition
+          Average aspect sentiment across all brands - benchmark any product&apos;s weaknesses against the competition
         </p>
         <Card className="p-6 bg-card border-border">
           <BrandAspectBar products={products} />

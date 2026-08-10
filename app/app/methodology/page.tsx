@@ -23,7 +23,7 @@ export default function MethodologyPage() {
           </p>
           <div className="mt-4 rounded-lg border border-border bg-card overflow-hidden">
             {[
-              ["Source",   "McAuley Lab — Amazon Review Data (2018)"],
+              ["Source",   "McAuley Lab - Amazon Review Data (2018)"],
               ["Category", "Cell Phones & Accessories"],
               ["Scope",    "18 products across 6 brands (top 3 by review count per brand)"],
               ["Brands",   "Apple · Samsung · Google · OnePlus · Motorola · Nokia"],
@@ -74,7 +74,7 @@ export default function MethodologyPage() {
           </div>
         </Section>
 
-        <Section title="TextBlob — Secondary Signal" step="03">
+        <Section title="TextBlob - Secondary Signal" step="03">
           <p className="text-foreground/75">
             <strong className="text-foreground">TextBlob</strong> provides two supplementary metrics that
             complement VADER&apos;s output:
@@ -140,7 +140,7 @@ export default function MethodologyPage() {
           </div>
           <p className="mt-4 text-foreground/60 text-xs">
             All results are serialised into a single{" "}
-            <code className="text-accent/80">data.json</code> file and bundled statically — no runtime
+            <code className="text-accent/80">data.json</code> file and bundled statically - no runtime
             API calls are made.
           </p>
         </Section>

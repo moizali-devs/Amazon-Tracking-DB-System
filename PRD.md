@@ -15,7 +15,7 @@ Online shoppers browsing Amazon are confronted with thousands of product reviews
 
 ## Solution
 
-A publicly accessible, static web dashboard that pre-processes a large Amazon Cell Phones & Accessories review dataset offline using NLP techniques (VADER, TextBlob, spaCy), serializes all results into a static JSON file, and serves them through a polished Next.js frontend deployed on Vercel. The dashboard allows users to explore sentiment breakdowns by product and brand, understand which specific product aspects drive positive or negative sentiment, track how sentiment changes over time, and compare competing products side by side — all without reading a single review.
+A publicly accessible, static web dashboard that pre-processes a large Amazon Cell Phones & Accessories review dataset offline using NLP techniques (VADER, TextBlob, spaCy), serializes all results into a static JSON file, and serves them through a polished Next.js frontend deployed on Vercel. The dashboard allows users to explore sentiment breakdowns by product and brand, understand which specific product aspects drive positive or negative sentiment, track how sentiment changes over time, and compare competing products side by side - all without reading a single review.
 
 ---
 
@@ -97,7 +97,7 @@ A publicly accessible, static web dashboard that pre-processes a large Amazon Ce
 - **UI components:** shadcn/ui for layout primitives (cards, tabs, dropdowns, sidebar)
 - **Charts:** Recharts for all visualizations (donut, bar, line, radar)
 - **Styling:** Tailwind CSS, dark theme by default
-- **Data loading:** `data.json` imported at build time via static generation — no runtime API calls
+- **Data loading:** `data.json` imported at build time via static generation - no runtime API calls
 - **Routing:** Single-page feel with tab/section navigation; optional dynamic routes per product (`/product/[id]`)
 - **Deployment:** Vercel, triggered on push to `main`
 
@@ -105,10 +105,10 @@ A publicly accessible, static web dashboard that pre-processes a large Amazon Ce
 - Each product entry contains: `id`, `brand`, `name`, `reviewCount`, `overallSentiment` (pos/neu/neg percentages), `aspectScores` (object keyed by aspect), `monthlySentiment` (array of `{month, positive, neutral, negative}`), `topPraisedAspects`, `topCriticizedAspects`
 
 ### Dashboard Sections
-1. **Landing/Overview** — brand filter, product grid with sentiment headline cards
-2. **Product Detail** — donut chart, aspect bar chart, top praised/criticized summary
-3. **Sentiment Over Time** — line chart with time range selector
-4. **Compare** — multi-product selector, radar chart, side-by-side bar chart
+1. **Landing/Overview** - brand filter, product grid with sentiment headline cards
+2. **Product Detail** - donut chart, aspect bar chart, top praised/criticized summary
+3. **Sentiment Over Time** - line chart with time range selector
+4. **Compare** - multi-product selector, radar chart, side-by-side bar chart
 
 ---
 
@@ -135,15 +135,15 @@ A publicly accessible, static web dashboard that pre-processes a large Amazon Ce
 
 ## Out of Scope
 
-- Live or real-time review ingestion — data is static and pre-computed offline
+- Live or real-time review ingestion - data is static and pre-computed offline
 - User authentication or personalized dashboards
 - Seller-facing account management or product claiming
-- Scraping Amazon directly — dataset is sourced from Kaggle/McAuley public data only
+- Scraping Amazon directly - dataset is sourced from Kaggle/McAuley public data only
 - Reviews outside the Cell Phones & Accessories category
 - Products beyond the 18 selected (6 brands × 3 products)
-- Multi-language review support — English only
-- Advanced ML models (BERT, transformers) — VADER + TextBlob only
-- A backend API or database — all data is bundled statically
+- Multi-language review support - English only
+- Advanced ML models (BERT, transformers) - VADER + TextBlob only
+- A backend API or database - all data is bundled statically
 
 ---
 

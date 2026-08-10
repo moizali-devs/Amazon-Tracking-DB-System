@@ -32,7 +32,7 @@ def extract_aspects(doc, vader_label: str) -> dict[str, str | None]:
 
     None means the aspect was not mentioned in the review.
     When an aspect IS mentioned, we use the VADER label of the overall review
-    as the sentiment — this is simpler and more reliable than token-level
+    as the sentiment - this is simpler and more reliable than token-level
     sentiment, which is noisy on short informal text.
     """
     text_lower = doc.text.lower()

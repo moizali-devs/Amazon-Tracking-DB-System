@@ -34,7 +34,7 @@ describe("toggleSelection", () => {
     expect(toggleSelection(["a", "b"], "a")).toEqual(["b"]);
   });
 
-  it(`prevents adding a ${MAX_COMPARE + 1}th product — caps at MAX_COMPARE`, () => {
+  it(`prevents adding a ${MAX_COMPARE + 1}th product - caps at MAX_COMPARE`, () => {
     const full = ["a", "b", "c"];
     expect(full).toHaveLength(MAX_COMPARE);
     const result = toggleSelection(full, "d");
