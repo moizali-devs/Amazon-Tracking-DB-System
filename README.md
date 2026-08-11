@@ -95,10 +95,3 @@ Already deployed - see the **Live demo** link at the top of this file.
 | Aspect extraction | spaCy |
 | Frontend | Next.js 14, shadcn/ui, Recharts, Tailwind CSS |
 | Deployment | Vercel |
-
----
-
-## Team
-
-Moiz Ali (024) · Ayesha Aleem (005) · Zainab Fatima (087)
-Introduction to Data Science - BS(CS) 6A, Bahria University Karachi
