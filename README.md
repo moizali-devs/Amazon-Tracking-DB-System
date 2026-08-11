@@ -17,7 +17,7 @@ An interactive dashboard that analyzes customer sentiment from Amazon Cell Phone
 - Classifies ~1M Amazon reviews as positive, neutral, or negative using VADER and TextBlob
 - Extracts aspect-level sentiment (battery, camera, screen, price, build, delivery) per product
 - Tracks how sentiment changes over time (monthly)
-- Presents everything in a polished Next.js dashboard with brand filtering, product detail views, trend charts, and side-by-side product comparison
+- Presents everything in a Next.js dashboard with brand filtering, product detail views, trend charts, and side-by-side product comparison
 
 **Brands covered:** Apple, Samsung, Google Pixel, OnePlus, Motorola, Nokia (top 3 products each = 18 products total)
 
