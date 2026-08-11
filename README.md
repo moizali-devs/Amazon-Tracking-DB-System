@@ -95,3 +95,9 @@ Already deployed - see the **Live demo** link at the top of this file.
 | Aspect extraction | spaCy |
 | Frontend | Next.js 14, shadcn/ui, Recharts, Tailwind CSS |
 | Deployment | Vercel |
+
+---
+
+## License
+
+MIT, see [LICENSE](LICENSE).
